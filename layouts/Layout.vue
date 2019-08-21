@@ -1,17 +1,23 @@
 <template>
   <el-container>
-    <el-header>Nav</el-header>
+    <el-header>
+      <Header />
+    </el-header>
 
     <el-container>
       <Menu />
       <Post />
     </el-container>
 
-    <el-footer>Footer</el-footer>
+    <el-footer>
+      <Footer />
+    </el-footer>
   </el-container>
 </template>
 
 <script>
+import Header from '@theme/components/Header'
+import Footer from '@theme/components/Footer'
 import Menu from '@theme/components/Menu'
 import Post from '@theme/components/Post'
 
@@ -19,6 +25,8 @@ export default {
   name: 'Layout',
 
   components: {
+    Header,
+    Footer,
     Menu,
     Post
   }
@@ -26,9 +34,8 @@ export default {
 </script>
 
 <style>
-.el-header,
-.el-footer {
-  background-color: #b3c0d1;
+.el-header {
+  background-color: #e2e1e4;
   color: #333;
   text-align: center;
   line-height: 60px;
@@ -49,7 +56,7 @@ export default {
 }
 
 body > .el-container {
-  margin-bottom: 40px;
+  margin-bottom: 0px;
 }
 
 .el-container:nth-child(5) .el-aside,
