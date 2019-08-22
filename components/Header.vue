@@ -7,6 +7,7 @@
         :alt="$themeConfig.avator.alt"
       ></el-avatar>
     </div>
+    <img src="/logo.png" class="logo" />
 
     <SearchBox v-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false" />
 
@@ -33,6 +34,12 @@ export default {
   margin-top: 10px;
 }
 
+.logo {
+  float: left;
+  max-width: 60px;
+  margin-left: 30px;
+}
+
 .nav {
   float: right;
 }
@@ -42,5 +49,4 @@ export default {
   font-size: 14px;
   padding: 0.5em;
 }
-
 </style>
