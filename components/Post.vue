@@ -23,8 +23,8 @@ export default {
 @require '../styles/wrapper.styl'
 
 .page
-  padding-bottom 2rem
   display block
+  padding-bottom 2rem
 
 .back-top
   right 1%

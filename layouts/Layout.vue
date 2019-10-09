@@ -21,7 +21,7 @@
           @click="collapsed = !collapsed"
         />
       </a-layout-header>
-      <a-layout-content @click="isCollapsed">
+      <a-layout-content @click="isCollapsed" class="layout-content">
         <Post />
       </a-layout-content>
       <a-layout-footer class="layout-footer">
@@ -68,14 +68,17 @@ export default {
   height 70px
   background rgba(255, 255, 255, .4) url('/logo.png') no-repeat center
   background-size auto 100%
-  border 5px solid #bcbcbc
+  border 5px solid #d6d3d3
 
 .layout-header
   padding 0
   background #eee
 
+.layout-content
+  min-width 100%
+
 .layout-footer
-  text-align center
+  text-align center 
 
 .layout-sidebar
   position fixed

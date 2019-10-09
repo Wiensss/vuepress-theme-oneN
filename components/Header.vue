@@ -1,7 +1,7 @@
 <template>
   <div class="component-header">
     <div class="navbar-avatar">
-      <a-avatar :size="55" src="/avatar.png" />
+      <a-avatar :size="55" src="/avatar.jpg" />
     </div>
     <span>
       <SearchBox class="search-box"/>
@@ -11,7 +11,7 @@
         v-for="item of $themeConfig.navbar"
         :key="item.type"
       >
-        <a class="navbar-icon" :href="item.href" target="view-window">
+        <a class="navbar-icon" :href="item.href">
           <a-icon :type="item.type" :title="item.title"/>
           <span class="navbar-icon-title">{{ item.title }}</span>
         </a>
@@ -33,6 +33,16 @@ export default {
 <style lang="stylus">
 @require '../styles/palette.styl'
 
+@keyframes rotate {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+
 .component-header
   height 70px
   background #fff
@@ -40,6 +50,9 @@ export default {
   .navbar-avatar
     float left
     padding-left 20px
+  
+  .navbar-avatar img:hover
+    animation rotate 2s linear infinite
 
   .navbar-breadcrumb
     float right
@@ -55,7 +68,7 @@ export default {
 
 @media (max-width 992px)
   .search-box
-    margin-left 0.8em
+    margin-left 0.4em
 
     .suggestions
       top 4rem
@@ -66,7 +79,7 @@ export default {
 
     .navbar-icon
       svg
-        font-size 26px
+        font-size 22px
 
       .navbar-icon-title
         display none
