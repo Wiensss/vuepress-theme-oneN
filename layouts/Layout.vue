@@ -1,24 +1,40 @@
 <template>
-  <el-container>
-    <el-header>
-      <Header />
-    </el-header>
-
-    <el-container>
-      <Menu />
-      <Post />
-    </el-container>
-
-    <el-footer>
-      <Footer />
-    </el-footer>
-  </el-container>
+  <a-layout>
+    <a-layout-sider
+      theme="light"
+      width="256px"
+      breakpoint="lg"
+      collapsedWidth="0"
+      v-model="collapsed"
+      class="layout-sidebar"
+    >
+      <div class="logo" title="oneN">
+      </div>
+      <Sidebar :collapsed="collapsed" />
+    </a-layout-sider>
+    <a-layout class="clear-content-margin">
+      <a-layout-header class="layout-header">
+        <Header />
+        <a-icon
+          class="trigger"
+          :type="collapsed ? 'menu-unfold' : 'menu-fold'"
+          @click="collapsed = !collapsed"
+        />
+      </a-layout-header>
+      <a-layout-content @click="isCollapsed">
+        <Post />
+      </a-layout-content>
+      <a-layout-footer class="layout-footer">
+        <Footer />
+      </a-layout-footer>
+    </a-layout>
+  </a-layout>
 </template>
 
 <script>
 import Header from '@theme/components/Header'
 import Footer from '@theme/components/Footer'
-import Menu from '@theme/components/Menu'
+import Sidebar from '@theme/components/Sidebar'
 import Post from '@theme/components/Post'
 
 export default {
@@ -27,44 +43,63 @@ export default {
   components: {
     Header,
     Footer,
-    Menu,
+    Sidebar,
     Post
+  },
+
+  data() {
+    return {
+      collapsed: false,
+    }
+  },
+
+  methods: {
+    isCollapsed() {
+      if (!this.collapsed && document.documentElement.clientWidth < 992) {
+        this.collapsed = !this.collapsed
+      }
+    }
   }
 }
 </script>
 
-<style>
-.el-header {
-  background-color: #e2e1e4;
-  color: #333;
-  text-align: center;
-  line-height: 60px;
-}
+<style lang="stylus">
+.logo
+  height 70px
+  background rgba(255, 255, 255, .4) url('/logo.png') no-repeat center
+  background-size auto 100%
+  border 5px solid #bcbcbc
 
-.el-aside {
-  background-color: #d3dce6;
-  color: #333;
-  text-align: center;
-  line-height: 200px;
-}
+.layout-header
+  padding 0
+  background #eee
 
-.el-main {
-  background-color: #e9eef3;
-  color: #333;
-  text-align: center;
-  line-height: 160px;
-}
+.layout-footer
+  text-align center
 
-body > .el-container {
-  margin-bottom: 0px;
-}
+.layout-sidebar
+  position fixed
+  height 100vh
+  width 256px
+  z-index 10
+  overflow hidden
 
-.el-container:nth-child(5) .el-aside,
-.el-container:nth-child(6) .el-aside {
-  line-height: 260px;
-}
+@media screen and (min-width 993px)
+  .clear-content-margin
+    margin-left 256px
 
-.el-container:nth-child(7) .el-aside {
-  line-height: 320px;
-}
+  .trigger
+    display none
+
+@media (max-width 992px)
+  .clear-content-margin
+    margin-left 0
+  
+  .trigger
+    position absolute
+    top 0
+    right 0
+    padding 0 10px
+    line-height 70px
+    font-size 26px
 </style>

@@ -1,21 +1,23 @@
 <template>
-  <header>
-    <div class="avatar">
-      <el-avatar
-        :src="$themeConfig.avator.url"
-        :size="$themeConfig.avator.size"
-        :alt="$themeConfig.avator.alt"
-      ></el-avatar>
+  <div class="component-header">
+    <div class="navbar-avatar">
+      <a-avatar :size="55" src="/avatar.png" />
     </div>
-    <img src="/logo.png" class="logo" />
-
-    <SearchBox v-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false" />
-
-    <div class="nav">
-      <el-button class="btn" icon="el-icon-user" type="text">关于我</el-button>
-      <el-button class="btn" icon="el-icon-star-off" type="text">GitHub</el-button>
-    </div>
-  </header>
+    <span>
+      <SearchBox class="search-box"/>
+    </span>
+    <a-breadcrumb class="navbar-breadcrumb">
+      <a-breadcrumb-item
+        v-for="item of $themeConfig.navbar"
+        :key="item.type"
+      >
+        <a class="navbar-icon" :href="item.href" target="view-window">
+          <a-icon :type="item.type" :title="item.title"/>
+          <span class="navbar-icon-title">{{ item.title }}</span>
+        </a>
+      </a-breadcrumb-item>
+    </a-breadcrumb>
+  </div>
 </template>
 
 <script>
@@ -28,25 +30,53 @@ export default {
 }
 </script>
 
-<style>
-.avatar {
-  float: left;
-  margin-top: 10px;
-}
+<style lang="stylus">
+@require '../styles/palette.styl'
 
-.logo {
-  float: left;
-  max-width: 60px;
-  margin-left: 30px;
-}
+.component-header
+  height 70px
+  background #fff
 
-.nav {
-  float: right;
-}
+  .navbar-avatar
+    float left
+    padding-left 20px
 
-.btn {
-  color: #7a7374;
-  font-size: 14px;
-  padding: 0.5em;
-}
+  .navbar-breadcrumb
+    float right
+    font-size 16px
+    line-height 70px
+    padding-right 20px
+
+    .navbar-icon
+      color $text-color
+
+    .navbar-icon:hover
+      color $link-color
+
+@media (max-width 992px)
+  .search-box
+    margin-left 0.8em
+
+    .suggestions
+      top 4rem
+      width 12rem
+
+  .navbar-breadcrumb
+    margin-right 2rem
+
+    .navbar-icon
+      svg
+        font-size 26px
+
+      .navbar-icon-title
+        display none
+
+
+@media screen and (min-width 993px)
+  .search-box
+    margin-left 13%
+    
+    .suggestions
+      width 18rem
+      top 4rem
 </style>
