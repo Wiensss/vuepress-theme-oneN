@@ -21,8 +21,9 @@
           @click="collapsed = !collapsed"
         />
       </a-layout-header>
-      <a-layout-content @click="isCollapsed" class="layout-content">
-        <Post />
+      <a-layout-content @click="isCollapsed">
+        <Page />
+        <a-back-top class="back-top"/>
       </a-layout-content>
       <a-layout-footer class="layout-footer">
         <Footer />
@@ -35,7 +36,7 @@
 import Header from '@theme/components/Header'
 import Footer from '@theme/components/Footer'
 import Sidebar from '@theme/components/Sidebar'
-import Post from '@theme/components/Post'
+import Page from '@theme/components/Page'
 
 export default {
   name: 'Layout',
@@ -44,7 +45,7 @@ export default {
     Header,
     Footer,
     Sidebar,
-    Post
+    Page
   },
 
   data() {
@@ -64,6 +65,8 @@ export default {
 </script>
 
 <style lang="stylus">
+@require '../styles/wrapper.styl'
+
 .logo
   height 70px
   background rgba(255, 255, 255, .4) url('/logo.png') no-repeat center
@@ -74,9 +77,6 @@ export default {
   padding 0
   background #eee
 
-.layout-content
-  min-width 100%
-
 .layout-footer
   text-align center 
 
@@ -86,6 +86,13 @@ export default {
   width 256px
   z-index 10
   overflow hidden
+
+.back-top
+  right 1%
+  bottom 30px
+
+.ant-back-top-content:hover
+  background #42b983
 
 @media screen and (min-width 993px)
   .clear-content-margin

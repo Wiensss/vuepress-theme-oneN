@@ -33,24 +33,16 @@ export default {
 <style lang="stylus">
 @require '../styles/palette.styl'
 
-@keyframes rotate {
-  from {
-    transform: rotate(0deg)
-  }
-  to {
-    transform: rotate(360deg)
-  }
-}
-
+@keyframes rotate 
+  from 
+    transform rotate(0deg)
+  to 
+    transform rotate(360deg)
 
 .component-header
   height 70px
   background #fff
 
-  .navbar-avatar
-    float left
-    padding-left 20px
-  
   .navbar-avatar img:hover
     animation rotate 2s linear infinite
 
@@ -84,6 +76,9 @@ export default {
       .navbar-icon-title
         display none
 
+  .navbar-avatar
+    float left
+    padding-left 10px
 
 @media screen and (min-width 993px)
   .search-box
@@ -92,4 +87,8 @@ export default {
     .suggestions
       width 18rem
       top 4rem
+
+  .navbar-avatar
+    float left
+    padding-left 20px
 </style>

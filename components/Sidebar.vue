@@ -3,14 +3,15 @@
     theme="light"
     mode="inline"
     :openKeys="openKeys"
+    :defaultSelectedKeys="[this.$route.path]"
     @openChange="onOpenChange"
     class="component-sidebar"
   >
-    <a-sub-menu v-for="menu in $themeConfig.menu" :key="menu.text">
+    <a-sub-menu v-for="menu in $themeConfig.menu" :key="menu.link">
       <span slot="title"><span>{{ menu.text }}</span></span>
       <a-sub-menu
         v-for="subMenu in menu.children"
-        :key="subMenu.text"
+        :key="subMenu.link"
         @titleClick="titleClick(menu.link + subMenu.link)"
       >
         <span slot="title"><span>{{ subMenu.text }}</span></span>
@@ -50,16 +51,26 @@ export default {
       return this.$site.pages
         .filter(post => post.path.startsWith(this.menuPath) && !post.frontmatter.blog_index)
         .sort((a, b) => a.frontmatter.index - b.frontmatter.index)
-    }
+    },
   },
 
   mounted() {
-    this.getRootSubmenuKeys() 
+    this.getRootSubmenuKeys()
+    this.getDefaultmenuKeys()
   },
 
   methods: {
+    getDefaultmenuKeys() {
+      if (this.$route.query !== null) {
+        const defaultMenu = []
+        for (let param in this.$route.query)
+          defaultMenu.push(this.$route.query[param])
+        this.openKeys = defaultMenu
+        this.menuPath = defaultMenu.join('')
+      }
+    },
     getRootSubmenuKeys () {
-      this.rootSubmenuKeys = this.$themeConfig.menu.map(item => item.text)
+      this.rootSubmenuKeys = this.$themeConfig.menu.map(item => item.link)
     },
     titleClick(path) {
       this.menuPath = path
@@ -68,7 +79,7 @@ export default {
       }
     },
     gotoPost(path) {
-      path !== this.$route.path ? this.$router.push(path) : null
+      path !== this.$route.path ? this.$router.push({ path: path, query: this.openKeys }) : null
     },
     onOpenChange(openKeys) {
       const latestOpenKey = openKeys.find(

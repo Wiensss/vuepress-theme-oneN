@@ -18,8 +18,6 @@ export default {
 </script>
 
 <style lang="stylus">
-@require '../styles/palette.styl'
-
 .cpmponent-footer
   height 60px
   line-height 60px

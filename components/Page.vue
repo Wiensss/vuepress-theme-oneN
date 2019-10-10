@@ -1,21 +1,13 @@
 <template>
   <div class="page">
-    <Content class="theme-default-content" />
-    <PageUpdate />
+    <Content ref="content" class="content__default" />
     <a-back-top class="back-top"/>
   </div>
 </template>
 
 <script>
-import PageUpdate from '@theme/components/PageUpdate.vue'
-import { resolvePage, outboundRE, endingSlashRE } from '../util'
-
 export default {
-  name: 'Post',
-
-  components: {
-    PageUpdate
-  }
+  name: 'Page'
 }
 </script>
 
@@ -23,8 +15,8 @@ export default {
 @require '../styles/wrapper.styl'
 
 .page
-  display block
   padding-bottom 2rem
+  display block
 
 .back-top
   right 1%
