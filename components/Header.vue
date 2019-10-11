@@ -12,7 +12,10 @@
         :key="item.type"
       >
         <a class="navbar-icon" :href="item.href">
-          <a-icon :type="item.type" :title="item.title"/>
+          <a-tooltip placement="bottom">
+            <template slot='title'><span>{{ item.title }}</span></template>
+            <a-icon :type="item.type"/>
+          </a-tooltip>
           <span class="navbar-icon-title">{{ item.title }}</span>
         </a>
       </a-breadcrumb-item>

@@ -10,7 +10,7 @@
     >
       <div class="logo" title="oneN">
       </div>
-      <Sidebar :collapsed="collapsed" />
+      <Sidebar :collapsed="collapsed"/>
     </a-layout-sider>
     <a-layout class="clear-content-margin">
       <a-layout-header class="layout-header">
@@ -66,6 +66,7 @@ export default {
 
 <style lang="stylus">
 @require '../styles/wrapper.styl'
+@require '../styles/wrapper.styl'
 
 .logo
   height 70px
@@ -93,6 +94,9 @@ export default {
 
 .ant-back-top-content:hover
   background #42b983
+
+.trigger:hover
+  color $link-color
 
 @media screen and (min-width 993px)
   .clear-content-margin

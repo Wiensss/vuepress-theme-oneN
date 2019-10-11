@@ -121,27 +121,14 @@ function resolvePath (relative, base, append) {
  * @param { string } localePath
  * @returns { SidebarGroup }
  */
-export function resolveSidebarItems (page, regularPath, site, localePath) {
-  const { pages, themeConfig } = site
-
-  const localeConfig = localePath && themeConfig.locales
-    ? themeConfig.locales[localePath] || themeConfig
-    : themeConfig
-
-  const pageSidebarConfig = page.frontmatter.sidebar || localeConfig.sidebar || themeConfig.sidebar
-  if (pageSidebarConfig === 'auto') {
-    return resolveHeaders(page)
-  }
-
-  const sidebarConfig = localeConfig.sidebar || themeConfig.sidebar
-  if (!sidebarConfig) {
-    return []
-  } else {
-    const { base, config } = resolveMatchingConfig(regularPath, sidebarConfig)
-    return config
-      ? config.map(item => resolveItem(item, pages, base))
-      : []
-  }
+export function resolveTocItems (page) {
+  return resolveHeaders(page)[0].children.map(
+    item => {
+      return {
+        title: item.title,
+        children: item.children
+      }
+    })
 }
 
 /**

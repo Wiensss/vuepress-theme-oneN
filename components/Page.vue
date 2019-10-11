@@ -2,16 +2,19 @@
   <div class="page">
     <Content class="content__default" />
     <SourceCard />
+    <TocDrawer />
     <a-back-top class="back-top"/>
   </div>
 </template>
 
 <script>
 import SourceCard from './SourceCard'
+import TocDrawer from './TocDrawer'
+
 export default {
   name: 'Page',
 
-  components: { SourceCard }
+  components: { SourceCard, TocDrawer },
 }
 </script>
 
