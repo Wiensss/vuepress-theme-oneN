@@ -23,7 +23,8 @@
       </a-layout-header>
       <a-layout-content @click="isCollapsed">
         <Page />
-        <a-back-top class="back-top"/>
+        <TocDrawer />
+        <a-back-top class="back-top" />
       </a-layout-content>
       <a-layout-footer class="layout-footer">
         <Footer />
@@ -37,6 +38,7 @@ import Header from '@theme/components/Header'
 import Footer from '@theme/components/Footer'
 import Sidebar from '@theme/components/Sidebar'
 import Page from '@theme/components/Page'
+import TocDrawer from '@theme/components/TocDrawer'
 
 export default {
   name: 'Layout',
@@ -45,7 +47,8 @@ export default {
     Header,
     Footer,
     Sidebar,
-    Page
+    Page,
+    TocDrawer
   },
 
   data() {

@@ -1,5 +1,5 @@
 <template>
-  <div class="draw-content">
+  <div v-show="tocItems.length > 0" class="draw-content">
     <a-tooltip placement="left">
       <template slot='title'><span>目录</span></template>
       <a-icon type="bars" @click="showDrawer" class="toc-button"/>
@@ -80,7 +80,6 @@ export default {
   cursor pointer
   font-size 22px
   background rgba(0, 0, 0, .65)
-  right 1%
   transition all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)
   overflow hidden
 
