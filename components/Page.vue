@@ -1,13 +1,17 @@
 <template>
   <div class="page">
-    <Content ref="content" class="content__default" />
+    <Content class="content__default" />
+    <SourceCard />
     <a-back-top class="back-top"/>
   </div>
 </template>
 
 <script>
+import SourceCard from './SourceCard'
 export default {
-  name: 'Page'
+  name: 'Page',
+
+  components: { SourceCard }
 }
 </script>
 

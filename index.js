@@ -1,16 +1,6 @@
 module.exports = (options, ctx) => ({
   plugins: [
     ['@vuepress/search'],
-    ['reading-time'],
-    ['@vuepress/pwa', {
-      serviceWorker: true,
-      updatePopup: true
-    }],
-    ['@vuepress/medium-zoom', true],
-    ['@vuepress/google-analytics', {
-      ga: 'UA-128189152-1'
-    }],
-    ['@vuepress/last-updated'],
     ['@vuepress/plugin-nprogress'],
     [
       'container',
