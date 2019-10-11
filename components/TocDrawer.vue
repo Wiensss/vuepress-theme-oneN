@@ -15,13 +15,13 @@
           v-for="toc in tocItems"
           :key="toc.title"
           :title="toc.title"
-          :href="fullPath + '#' + toc.title.toLowerCase()"
+          :href="fullPath + '#' + toc.slug"
         >
           <a-anchor-link 
             v-for="item of toc.children"
             :key="item.title"
             :title="item.title"
-            :href="fullPath + '#' + item.title.toLowerCase()"
+            :href="fullPath + '#' + item.slug"
           />
         </a-anchor-link>
       </a-anchor>
