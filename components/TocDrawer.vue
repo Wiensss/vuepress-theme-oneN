@@ -16,13 +16,13 @@
       @close="visible = !visible">
       <a-anchor @click="visible = !visible">
         <a-anchor-link
-          v-for="toc in tocItems"
-          :key="toc.title"
+          v-for="(toc, index) in tocItems"
+          :key="toc.title + index"
           :title="toc.title"
           :href="fullPath + '#' + toc.slug">
           <a-anchor-link 
-            v-for="item of toc.children"
-            :key="item.title"
+            v-for="(item, index) of toc.children"
+            :key="item + index"
             :title="item.title"
             :href="fullPath + '#' + item.slug"/>
         </a-anchor-link>
