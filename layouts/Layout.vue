@@ -71,10 +71,10 @@ export default {
 .layout-header
   padding 0
   height 70px
-  background $bgColor url('/header.png') no-repeat left
+  background #f9f9f9 url('/header.jpg') no-repeat left
   background-size auto 100%
 
-.layout-footer
+.layout-footer  
   color $textColor
   font-weight 500
   text-align center
@@ -116,5 +116,5 @@ export default {
     right 0
     padding 0 10px
     font-size 26px
-    line-height 70px
+    line-height 75px
 </style>

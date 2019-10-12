@@ -50,9 +50,8 @@ export default {
 .navbar-breadcrumb
   float right
   font-size 16px
-  line-height 70px
-  padding-right 23px
-  background-color #f9f9f9
+  line-height 75px
+  background-color rgba(0, 0, 0, 0)
 
   .navbar-icon
     color $textColor
@@ -62,6 +61,9 @@ export default {
     transition all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)
 
 @media screen and (min-width $MQNarrow + 1)
+  .navbar-breadcrumb
+      margin-right 1rem
+
   .search-box
     margin .2rem 0 0 5rem
     
@@ -71,14 +73,14 @@ export default {
 
 @media (max-width $MQNarrow)
   .search-box
-    margin .2rem 0 0 .5rem
+    margin-top .1rem
 
     .suggestions
       top 3.5rem
       width 12rem
 
   .navbar-breadcrumb
-    margin-right 2rem
+    margin-right 2.8rem
 
     .navbar-icon
       .navbar-icon-title
