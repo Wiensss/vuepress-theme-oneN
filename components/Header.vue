@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div ref='d'>
     <a-avatar
       :size="55"
       src="/avatar.jpg"
       class="navbar-avatar" />
 
-    <SearchBox class="search-box" />
+      <SearchBox class="search-box" />
 
     <a-breadcrumb class="navbar-breadcrumb">
       <a-breadcrumb-item
@@ -52,6 +52,7 @@ export default {
   font-size 16px
   line-height 75px
   background-color rgba(0, 0, 0, 0)
+  z-index 0
 
   .navbar-icon
     color $textColor
@@ -74,6 +75,9 @@ export default {
 @media (max-width $MQNarrow)
   .search-box
     margin-top .1rem
+
+    input:focus
+      width 7rem
 
     .suggestions
       top 3.5rem
