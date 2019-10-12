@@ -22,6 +22,7 @@ body
 
   a:hover
     text-decoration underline
+    color $accentColor
 
   img
     max-width 100%
@@ -37,10 +38,6 @@ a
   font-weight 500
   color $accentColor
   text-decoration none
-
-a:hover
-  color $accentColor
-  text-decoration overline
 
 p a code
   font-weight 400
@@ -107,16 +104,16 @@ h4
 
 a.header-anchor
   float left
+  opacity 0
   margin-top .125em
   margin-left -0.87em
-  padding-right .23em
-  font-size .85em
-  opacity 0
+  padding-right 0.23em
+  font-size 0.85em
 
     &:hover
       text-decoration none
 
-code, kbd, .line-number
+code, kbd
   font-family source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace
 
 p, ul, ol

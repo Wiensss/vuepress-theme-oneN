@@ -1,0 +1,28 @@
+{
+  "name": "vuepress-theme-onen",
+  "version": "1.0.0",
+  "description": "VuePress theme of oneN",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Veminem/vuepress-theme-oneN"
+  },
+  "keywords": [
+    "vue",
+    "vuepress",
+    "vuepress-theme"
+  ],
+  "author": "Vincent Hy",
+  "license": "MIT",
+  "homepage": "https://github.com/Veminem/vuepress-theme-oneN#readme",
+  "dependencies": {
+    "@vuepress/plugin-search": "^1.2.0",
+    "vuepress-plugin-container": "^2.0.2",
+    "lodash": "^4.17.15",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2"
+  }
+}

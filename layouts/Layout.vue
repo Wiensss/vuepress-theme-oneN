@@ -87,7 +87,7 @@ export default {
   .logo
     height 70px
     border 5px solid $borderColor
-    background $viceBgColor url('/logo.png') no-repeat center
+    background $bgColor url('/logo.png') no-repeat center
     background-size auto 100%
 
 .back-top
