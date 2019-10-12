@@ -1,34 +1,36 @@
 <template>
   <a-layout>
+
     <a-layout-sider
-      theme="light"
       width="256px"
       breakpoint="lg"
       collapsedWidth="0"
       v-model="collapsed"
-      class="layout-sidebar"
-    >
-      <div class="logo" title="oneN">
-      </div>
+      class="layout-sidebar">
+      <div class="logo" title="oneN"></div>
       <Sidebar :collapsed="collapsed"/>
     </a-layout-sider>
-    <a-layout class="clear-content-margin">
+
+    <a-layout class="content-margin">
+
       <a-layout-header class="layout-header">
         <Header />
         <a-icon
           class="trigger"
           :type="collapsed ? 'menu-unfold' : 'menu-fold'"
-          @click="collapsed = !collapsed"
-        />
+          @click="collapsed = !collapsed" />
       </a-layout-header>
+
       <a-layout-content @click="isCollapsed">
         <Page />
-        <TocDrawer />
-        <a-back-top class="back-top" />
       </a-layout-content>
+
       <a-layout-footer class="layout-footer">
         <Footer />
       </a-layout-footer>
+      
+      <TocDrawer />
+      <a-back-top class="back-top" />
     </a-layout>
   </a-layout>
 </template>
@@ -41,8 +43,6 @@ import Page from '@theme/components/Page'
 import TocDrawer from '@theme/components/TocDrawer'
 
 export default {
-  name: 'Layout',
-
   components: {
     Header,
     Footer,
@@ -53,63 +53,60 @@ export default {
 
   data() {
     return {
-      collapsed: false,
+      collapsed: false
     }
   },
 
   methods: {
     isCollapsed() {
       if (!this.collapsed && document.documentElement.clientWidth < 992) {
-        this.collapsed = !this.collapsed
+        return this.collapsed = !this.collapsed
       }
     }
   }
 }
 </script>
 
-<style lang="stylus">
-@require '../styles/wrapper.styl'
-@require '../styles/wrapper.styl'
-
-.logo
-  height 70px
-  background rgba(255, 255, 255, .4) url('/logo.png') no-repeat center
-  background-size auto 100%
-  border 5px solid #d6d3d3
-
+<style scope lang="stylus">
 .layout-header
   padding 0
-  background #eee
+  height 70px
+  background $bgColor
 
 .layout-footer
-  text-align center 
+  color $textColor
+  font-weight 500
+  text-align center
 
 .layout-sidebar
   position fixed
   height 100vh
-  width 256px
-  z-index 10
   overflow hidden
+  z-index 10
+
+  .logo
+    height 70px
+    border 5px solid $borderColor
+    background $viceBgColor url('/logo.png') no-repeat center
+    background-size auto 100%
 
 .back-top
-  right 1%
-  bottom 30px
-
-.ant-back-top-content:hover
-  background #42b983
+  right .5rem
+  bottom 2rem
 
 .trigger:hover
-  color $link-color
+  color $accentColor
+  transition all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)
 
-@media screen and (min-width 993px)
-  .clear-content-margin
+@media screen and (min-width $MQNarrow + 1)
+  .content-margin
     margin-left 256px
 
   .trigger
     display none
 
-@media (max-width 992px)
-  .clear-content-margin
+@media (max-width $MQNarrow)
+  .content-margin
     margin-left 0
   
   .trigger
@@ -117,6 +114,6 @@ export default {
     top 0
     right 0
     padding 0 10px
-    line-height 70px
     font-size 26px
+    line-height 70px
 </style>

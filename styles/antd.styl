@@ -1,0 +1,49 @@
+// ant-anchor
+.ant-anchor-ink-ball
+  border 2px solid $accentColor
+
+.ant-anchor-link
+  line-height 1.3
+
+.ant-anchor-link-title
+  color $textColor
+
+.ant-anchor-link-title:hover
+.ant-anchor-link-active > .ant-anchor-link-title
+  color $accentColor
+  text-decoration none
+
+// ant-collapse, ant-divider
+.ant-divider-inner-text
+.ant-collapse >.ant-collapse-item.ant-collapse-no-arrow > .ant-collapse-header
+  color $textColor
+
+// ant-back-top
+.ant-back-top-content
+  background rgba(0, 0, 0, .65)
+
+.ant-back-top-content:hover
+  background $accentColor
+
+// ant-menu
+.ant-menu-item:hover
+.ant-menu-submenu-title:hover
+  color $accentColor
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected
+  background-color #42b9833d
+
+.ant-menu-submenu-title
+.ant-menu-item
+.ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow:before
+.ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow:after
+  color $textColor
+  font-weight 600
+
+.ant-menu-submenu-inline > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow:before
+.ant-menu-submenu-inline > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow:after
+  background $accentColor
+
+.ant-menu-inline
+  .ant-menu-item:after
+    border-right .35rem solid $accentColor

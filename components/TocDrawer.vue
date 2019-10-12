@@ -1,44 +1,42 @@
 <template>
-  <div v-show="tocItems.length > 0" class="draw-content">
+  <div v-show="tocItems.length > 0">
+
     <a-tooltip placement="left">
-      <template slot='title'><span>目录</span></template>
-      <a-icon type="bars" @click="showDrawer" class="toc-button"/>
+      <template slot='title'>目录</template>
+      <a-icon
+        type="bars"
+        @click="visible = true"
+        class="toc-button" />
     </a-tooltip>
+
     <a-drawer
       placement="left"
       :closable="false"
-      @close="onClose"
       :visible="visible"
-    >
+      @close="visible = !visible">
       <a-anchor @click="visible = !visible">
         <a-anchor-link
           v-for="toc in tocItems"
           :key="toc.title"
           :title="toc.title"
-          :href="fullPath + '#' + toc.slug"
-        >
+          :href="fullPath + '#' + toc.slug">
           <a-anchor-link 
             v-for="item of toc.children"
             :key="item.title"
             :title="item.title"
-            :href="fullPath + '#' + item.slug"
-          />
+            :href="fullPath + '#' + item.slug"/>
         </a-anchor-link>
       </a-anchor>
     </a-drawer>
-    </div>
   </div>
 </template>
 <script>
 import { resolveTocItems } from '../util'
 
 export default {
-  name: 'Toc-Drawer',
-
   data() {
     return {
-      visible: false,
-      prePath: ''
+      visible: false
     }
   },
 
@@ -50,56 +48,28 @@ export default {
     fullPath() {
       return this.$route.fullPath.split('#')[0]
     }
-  },
-
-  methods: {
-    showDrawer() {
-      this.visible = true
-    },
-
-    onClose() {
-      this.visible = false
-    }
-  },
+  }
 }
 </script>
 
-<style lang="stylus">
-@require '../styles/palette.styl'
-
+<style scope lang="stylus">
 .toc-button
   position fixed
-  right 1%
-  bottom 85px
+  padding-top 2px
+  right .5rem
+  bottom 5rem
   width 40px
   height 40px
   line-height 40px
-  border-radius 20px
-  z-index 10
-  color #fff
+  color $bgColor
   cursor pointer
   font-size 22px
+  border-radius 20px
   background rgba(0, 0, 0, .65)
-  transition all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)
   overflow hidden
+  z-index 1
 
 .toc-button:hover
-  background $link-color
-
-.ant-anchor-link
-  line-height 1.3
-
-.ant-anchor-link-title
-  color $text-color
-
-.ant-anchor-ink-ball
-  border 2px solid $link-color
-
-.ant-anchor-link-title:hover
-.ant-anchor-link-active > .ant-anchor-link-title
-  color $link-color
-
-.draw-content
-  display flex
-  align-items center
+  background $accentColor
+  transition all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)
 </style>
