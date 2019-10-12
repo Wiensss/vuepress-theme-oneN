@@ -1,0 +1,87 @@
+<template>
+  <div>
+    <a-avatar
+      :size="55"
+      src="/avatar.jpg"
+      class="navbar-avatar" />
+
+    <SearchBox class="search-box" />
+
+    <a-breadcrumb class="navbar-breadcrumb">
+      <a-breadcrumb-item
+        v-for="item of $themeConfig.navbar"
+        :key="item.type">
+
+        <a-tooltip placement="bottom">
+          <template slot='title'>{{ item.title }}</template>
+          <a class="navbar-icon" :href="item.href">
+            <a-icon :type="item.type"/>
+            <span class="navbar-icon-title">{{ item.title }}</span>
+          </a>
+        </a-tooltip>
+
+      </a-breadcrumb-item>
+    </a-breadcrumb>
+  </div>
+</template>
+
+<script>
+import SearchBox from '@SearchBox'
+
+export default {
+  components: { SearchBox }
+}
+</script>
+
+<style lang="stylus">
+@keyframes rotate 
+  from 
+    transform rotate(0deg)
+  to 
+    transform rotate(360deg)
+
+.navbar-avatar
+    float left
+    margin .5rem
+
+    img:hover
+      animation rotate 2s linear infinite
+
+.navbar-breadcrumb
+  float right
+  font-size 16px
+  line-height 70px
+  padding-right 20px
+
+  .navbar-icon
+    color $textColor
+
+  .navbar-icon:hover
+    color $accentColor
+    transition all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)
+
+@media screen and (min-width $MQNarrow + 1)
+  .search-box
+    margin .2rem 0 0 5rem
+    
+    .suggestions
+      width 18rem
+      top 3.5rem
+
+@media (max-width $MQNarrow)
+  .search-box
+    margin .2rem 0 0 .5rem
+
+    .suggestions
+      top 3.5rem
+      width 12rem
+
+  .navbar-breadcrumb
+    margin-right 2rem
+
+    .navbar-icon
+      .navbar-icon-title
+        display none
+      svg
+        font-size 22px
+</style>

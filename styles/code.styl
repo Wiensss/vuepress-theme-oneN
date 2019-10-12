@@ -1,0 +1,105 @@
+$contentClass = '.content__default'
+
+{$contentClass}
+  code
+    margin 0
+    padding .25rem .5rem
+    color $varColor
+    font-size .85em
+    border-radius 3px
+    background-color $viceBgColor
+
+{$contentClass}
+  pre, pre[class*="language-"]
+    margin .85rem 0
+    padding 1.25rem 1.5rem
+    line-height 1.4
+    border-radius 6px
+    background-color $codeBgColor
+    overflow auto
+
+    code
+      padding 0
+      color $bgColor
+      border-radius 0
+      background-color transparent
+
+div[class*="language-"]
+  position relative
+  border-radius 6px
+  background-color $codeBgColor
+
+  pre, pre[class*="language-"]
+    position relative
+    background transparent
+    z-index 1
+
+  &::before
+    position absolute
+    top .8em
+    right 1em
+    font-size .75rem
+    color rgba(255, 255, 255, 0.4)
+    z-index 3
+
+  &:not(.line-numbers-mode)
+    .line-numbers-wrapper
+      display none
+
+for lang in $codeLang
+  div{'[class~="language-' + lang + '"]'}
+    &:before
+      content ('' + lang)
+
+div[class~="language-javascript"]:before
+  content "js"
+
+div[class~="language-typescript"]:before
+  content "ts"
+
+div[class~="language-markup"]:before
+  content "html"
+
+div[class~="language-css"]:before
+  content "css"
+
+div[class~="language-less"]:before
+  content "less"
+
+div[class~="language-sass"]:before
+  content "sass"
+
+div[class~="language-scss"]:before
+  content "scss"
+
+div[class~="language-stylus"]:before
+  content "stylus"
+
+div[class~="language-markdown"]:before
+  content "md"
+
+div[class~="language-json"]:before
+  content "json"
+
+div[class~="language-python"]:before
+  content "py"
+
+div[class~="language-bash"]:before
+  content "sh"
+
+div[class~="language-http"]:before
+  content "http"
+
+div[class~="language-git"]:before
+  content "git"
+
+div[class~="language-yml"]:before
+  content "yml"
+
+div[class~="language-jsx"]:before
+  content "jsx"
+
+div[class~="language-tsx"]:before
+  content "tsx"
+
+@import '~prismjs/themes/prism-tomorrow.css'

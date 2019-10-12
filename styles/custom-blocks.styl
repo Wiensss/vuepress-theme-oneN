@@ -1,0 +1,30 @@
+.custom-block
+  p
+    margin-bottom 0
+
+  .custom-block-title
+    margin-bottom .3rem
+    font-weight 600
+
+  &.tip, &.warning, &.danger
+    padding .01rem 1.5rem
+    border-left-width .5rem
+    border-left-style solid
+
+  &.tip
+    color darken($accentColor, 30%)
+    border-color $accentColor
+    .custom-block-title
+      color darken($accentColor, 40%)
+
+  &.warning
+    color darken($warningColor, 30%)
+    border-color $warningColor
+    .custom-block-title
+      color darken($warningColor, 40%)
+
+  &.danger
+    color darken($dangerColor, 30%)
+    border-color $dangerColor
+    .custom-block-title
+      color darken($dangerColor, 40%)

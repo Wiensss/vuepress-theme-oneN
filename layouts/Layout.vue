@@ -1,63 +1,119 @@
 <template>
-  <el-container>
-    <el-header>Nav</el-header>
+  <a-layout>
 
-    <el-container>
-      <Menu />
-      <Post />
-    </el-container>
+    <a-layout-sider
+      width="256px"
+      breakpoint="lg"
+      collapsedWidth="0"
+      v-model="collapsed"
+      class="layout-sidebar">
+      <div class="logo" title="oneN"></div>
+      <Sidebar :collapsed="collapsed"/>
+    </a-layout-sider>
 
-    <el-footer>Footer</el-footer>
-  </el-container>
+    <a-layout class="content-margin">
+
+      <a-layout-header class="layout-header">
+        <Header />
+        <a-icon
+          class="trigger"
+          :type="collapsed ? 'menu-unfold' : 'menu-fold'"
+          @click="collapsed = !collapsed" />
+      </a-layout-header>
+
+      <a-layout-content @click="isCollapsed">
+        <Page />
+      </a-layout-content>
+
+      <a-layout-footer class="layout-footer">
+        <Footer />
+      </a-layout-footer>
+      
+      <TocDrawer />
+      <a-back-top class="back-top" />
+    </a-layout>
+  </a-layout>
 </template>
 
 <script>
-import Menu from '@theme/components/Menu'
-import Post from '@theme/components/Post'
+import Header from '@theme/components/Header'
+import Footer from '@theme/components/Footer'
+import Sidebar from '@theme/components/Sidebar'
+import Page from '@theme/components/Page'
+import TocDrawer from '@theme/components/TocDrawer'
 
 export default {
-  name: 'Layout',
-
   components: {
-    Menu,
-    Post
+    Header,
+    Footer,
+    Sidebar,
+    Page,
+    TocDrawer
+  },
+
+  data() {
+    return {
+      collapsed: false
+    }
+  },
+
+  methods: {
+    isCollapsed() {
+      if (!this.collapsed && document.documentElement.clientWidth < 992) {
+        return this.collapsed = !this.collapsed
+      }
+    }
   }
 }
 </script>
 
-<style>
-.el-header,
-.el-footer {
-  background-color: #b3c0d1;
-  color: #333;
-  text-align: center;
-  line-height: 60px;
-}
+<style scope lang="stylus">
+.layout-header
+  padding 0
+  height 70px
+  background $bgColor
 
-.el-aside {
-  background-color: #d3dce6;
-  color: #333;
-  text-align: center;
-  line-height: 200px;
-}
+.layout-footer
+  color $textColor
+  font-weight 500
+  text-align center
 
-.el-main {
-  background-color: #e9eef3;
-  color: #333;
-  text-align: center;
-  line-height: 160px;
-}
+.layout-sidebar
+  position fixed
+  height 100vh
+  overflow hidden
+  z-index 10
 
-body > .el-container {
-  margin-bottom: 40px;
-}
+  .logo
+    height 70px
+    border 5px solid $borderColor
+    background $viceBgColor url('/logo.png') no-repeat center
+    background-size auto 100%
 
-.el-container:nth-child(5) .el-aside,
-.el-container:nth-child(6) .el-aside {
-  line-height: 260px;
-}
+.back-top
+  right .5rem
+  bottom 2rem
 
-.el-container:nth-child(7) .el-aside {
-  line-height: 320px;
-}
+.trigger:hover
+  color $accentColor
+  transition all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)
+
+@media screen and (min-width $MQNarrow + 1)
+  .content-margin
+    margin-left 256px
+
+  .trigger
+    display none
+
+@media (max-width $MQNarrow)
+  .content-margin
+    margin-left 0
+  
+  .trigger
+    position absolute
+    top 0
+    right 0
+    padding 0 10px
+    font-size 26px
+    line-height 70px
 </style>
