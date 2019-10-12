@@ -71,7 +71,8 @@ export default {
 .layout-header
   padding 0
   height 70px
-  background $bgColor
+  background $bgColor url('/header.png') no-repeat left
+  background-size auto 100%
 
 .layout-footer
   color $textColor

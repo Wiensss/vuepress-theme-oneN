@@ -51,7 +51,8 @@ export default {
   float right
   font-size 16px
   line-height 70px
-  padding-right 20px
+  padding-right 23px
+  background-color #f9f9f9
 
   .navbar-icon
     color $textColor
