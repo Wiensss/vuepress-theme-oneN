@@ -1,5 +1,5 @@
 <template>
-  <div ref='d'>
+  <div>
     <a-avatar
       :size="55"
       src="/avatar.jpg"
