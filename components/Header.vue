@@ -52,7 +52,6 @@ export default {
   font-size 16px
   line-height 75px
   background-color rgba(0, 0, 0, 0)
-  z-index 0
 
   .navbar-icon
     color $textColor
