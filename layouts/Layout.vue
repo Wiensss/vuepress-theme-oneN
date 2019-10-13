@@ -87,7 +87,8 @@ export default {
 
   .logo
     height 70px
-    border 5px solid $borderColor
+    border 5px solid
+    border-image linear-gradient(to left, $accentColor, $textColor) 30 30
     background $bgColor url('/logo.png') no-repeat center
     background-size auto 100%
 
