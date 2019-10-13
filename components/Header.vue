@@ -67,7 +67,7 @@ export default {
 
   .search-box
     margin .2rem 0 0 5rem
-    
+
     .suggestions
       width 18rem
       top 3.5rem
