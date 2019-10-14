@@ -1,21 +1,15 @@
 <template>
   <div 
-    class="home"
-    :class="isShow? 'isShow': 'isHide'"
+    :class="[isShow, 'home']"
   >
-
-    <LoadingPage v-if="firstLoad" />
 
     <div class="hero">
       <img
-        v-if="data.isShowHeroImage !== false"
         :src="data.heroImage || $withBase(data.heroImage)"
         alt="hero"
       />
 
-      <h1 v-if="data.isShowTitleInHome !== false">
-        {{ $title }}
-      </h1>
+      <h1>{{ $title }}</h1>
 
       <p class="action">
         <a class="action-button" :href="data.actionLink">
@@ -37,7 +31,7 @@
         <p>{{ feature.details }}</p>
       </div>
     </div>
-    
+
   </div>
 </template>
 
@@ -49,8 +43,7 @@ export default {
 
   data() {
     return {
-      recoShow: false,
-      firstLoad: true
+      isShow: 'hide'
     }
   },
 
@@ -68,15 +61,7 @@ export default {
   },
 
   mounted() {
-    this.isShow = true
-
-    const time = sessionStorage.getItem('firstLoad') == undefined ? 1000 : 0
-    setTimeout(() => {
-      this.firstLoad = false
-      if (sessionStorage.getItem('firstLoad') == undefined) {
-        sessionStorage.setItem('firstLoad', false)
-      }
-    }, time)
+    this.isShow = 'show'
   }
 }
 </script>
@@ -142,12 +127,9 @@ export default {
     &:hover
       transform scale(1.1)
 
-&.isHide
+&.hide
   .hero
-    img
-    .h1
-    .action-button
-      load-start()
+    load-start()
 
   .features
     load-start()
@@ -156,7 +138,7 @@ export default {
     load-start()
     padding 0
 
-&.isShow
+&.show
   .hero
     img 
       load-end(.08s)
@@ -166,7 +148,7 @@ export default {
       load-end(.4s)
 
   .features
-    load-end(.40s)
+    load-end(.41s)
 
   .home-center
     load-end(.48s)

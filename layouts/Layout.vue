@@ -1,4 +1,7 @@
 <template>
+<div>
+  <LoadingPage v-if="firstLoad" />
+
   <Home v-if="$page.frontmatter.home"/>
 
   <a-layout v-else>
@@ -36,6 +39,7 @@
 
     </a-layout>
   </a-layout>
+</div>
 </template>
 
 <script>
@@ -45,6 +49,7 @@ import Footer from '@theme/components/Footer'
 import Sidebar from '@theme/components/Sidebar'
 import Page from '@theme/components/Page'
 import TocDrawer from '@theme/components/TocDrawer'
+import LoadingPage from '@theme/components/LoadingPage'
 
 export default {
   components: {
@@ -54,12 +59,24 @@ export default {
     Sidebar,
     Page,
     TocDrawer,
+    LoadingPage
   },
 
   data() {
     return {
-      collapsed: false
+      collapsed: false,
+      firstLoad: true
     }
+  },
+
+  mounted() {
+    const time = sessionStorage.getItem('firstLoad') == undefined ? 1000 : 0
+    setTimeout(() => {
+      this.firstLoad = false
+      if (sessionStorage.getItem('firstLoad') == undefined) {
+        sessionStorage.setItem('firstLoad', false)
+      }
+    }, time)
   },
 
   methods: {
