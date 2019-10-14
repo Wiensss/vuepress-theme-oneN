@@ -1,27 +1,29 @@
 <template>
   <div>
+
     <a-avatar
       :size="55"
       src="/avatar.jpg"
-      class="navbar-avatar" />
+      class="navbar-avatar"
+    />
 
-      <SearchBox class="search-box" />
+    <SearchBox class="search-box" />
 
     <a-breadcrumb class="navbar-breadcrumb">
       <a-breadcrumb-item
         v-for="item of $themeConfig.navbar"
-        :key="item.type">
-
+        :key="item.type"
+      >
         <a-tooltip placement="bottom">
-          <template slot='title'>{{ item.title }}</template>
-          <a class="navbar-icon" :href="item.href">
-            <a-icon :type="item.type"/>
+          <template slot="title">{{ item.title }}</template>
+          <a :href="item.href" class="navbar-icon">
+            <a-icon :type="item.type" />
             <span class="navbar-icon-title">{{ item.title }}</span>
           </a>
         </a-tooltip>
-
       </a-breadcrumb-item>
     </a-breadcrumb>
+
   </div>
 </template>
 
@@ -37,57 +39,58 @@ export default {
 @keyframes rotate 
   from 
     transform rotate(0deg)
+
   to 
     transform rotate(360deg)
 
-.navbar-avatar
-    float left
-    margin .5rem
+.navbar-avatar 
+  float left
+  margin .5rem
 
-    img:hover
-      animation rotate 2s linear infinite
+  img:hover 
+    animation rotate 2s linear infinite
 
-.navbar-breadcrumb
+.navbar-breadcrumb 
   float right
   font-size 16px
   line-height 75px
   background-color rgba(0, 0, 0, 0)
 
-  .navbar-icon
+  .navbar-icon 
     color $textColor
 
-  .navbar-icon:hover
+  .navbar-icon:hover 
     color $accentColor
-    transition all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)
+    transition all .5s cubic-bezier(.645, .045, .355, 1)
 
-@media screen and (min-width $MQNarrow + 1)
-  .navbar-breadcrumb
-      margin-right 1rem
+@media screen and (min-width $MQNarrow + 1) 
+  .navbar-breadcrumb 
+    margin-right 1rem
 
-  .search-box
+  .search-box 
     margin .2rem 0 0 5rem
 
-    .suggestions
+    .suggestions 
       width 18rem
       top 3.5rem
 
-@media (max-width $MQNarrow)
-  .search-box
-    margin-top .1rem
+@media (max-width $MQNarrow) 
+  .search-box 
+    margin-top 0.1rem
 
-    input:focus
+    input:focus 
       width 7rem
 
-    .suggestions
+    .suggestions 
       top 3.5rem
       width 12rem
 
-  .navbar-breadcrumb
+  .navbar-breadcrumb 
     margin-right 2.8rem
 
-    .navbar-icon
-      .navbar-icon-title
+    .navbar-icon 
+      .navbar-icon-title 
         display none
-      svg
+      svg 
         font-size 22px
 </style>

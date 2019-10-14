@@ -1,7 +1,12 @@
 <template>
   <div class="page">
-    <Content class="content__default" />
+
+    <transition name="slide-fade">
+      <Content class="content__default" />
+    </transition>
+
     <SourceCard />
+    
   </div>
 </template>
 
@@ -9,12 +14,19 @@
 import SourceCard from './SourceCard'
 
 export default {
-  components: { SourceCard },
+  components: { SourceCard }
 }
 </script>
 
 <style lang="stylus">
-.page
+.page 
   padding-bottom 2rem
   display block
+
+.slide-fade-enter-active 
+  transition all .3s ease
+
+.slide-fade-enter 
+  transform translateX(20px)
+  opacity 0
 </style>

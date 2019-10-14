@@ -1,9 +1,7 @@
-import Vue from 'vue'
 import nprogress from 'nprogress'
 
 export default {
-  mounted () {
-    // configure progress bar
+  mounted() {
     nprogress.configure({ showSpinner: false })
 
     this.$router.beforeEach((to, from, next) => {
@@ -15,7 +13,6 @@ export default {
 
     this.$router.afterEach(() => {
       nprogress.done()
-      this.isSidebarOpen = false
     })
   }
 }

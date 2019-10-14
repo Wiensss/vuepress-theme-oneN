@@ -4,23 +4,24 @@
     :openKeys="openKeys"
     :defaultSelectedKeys="[this.$route.path]"
     @openChange="onOpenChange"
-    class="component-sidebar">
-
+    class="component-sidebar"
+  >
     <a-sub-menu
       v-for="menu in $themeConfig.menu"
-      :key="menu.link">
+      :key="menu.link"
+    >
       <span slot="title">{{ menu.text }}</span>
-
       <a-sub-menu
         v-for="subMenu in menu.children"
+        @titleClick="keepOpenKeys(menu.link + subMenu.link)"
         :key="subMenu.link"
-        @titleClick="keepOpenKeys(menu.link + subMenu.link)">
+      >
         <span slot="title">{{ subMenu.text }}</span>
-
         <a-menu-item
           v-for="(post, index) in posts"
+          @click="gotoPost(post.path)"
           :key="post.path"
-          @click="gotoPost(post.path)">
+        >
           {{ 1 + index + ' - ' + post.title }}
         </a-menu-item>
       </a-sub-menu>
@@ -41,14 +42,17 @@ export default {
     return {
       menuPath: '',
       rootSubmenuKeys: [],
-      openKeys: [],
+      openKeys: []
     }
   },
 
   computed: {
     posts() {
       return this.$site.pages
-        .filter(post => post.path.startsWith(this.menuPath) && !post.frontmatter.blog_index)
+        .filter(post =>
+          post.path.startsWith(this.menuPath)
+          && !post.frontmatter.blog_index
+        )
         .sort((a, b) => a.frontmatter.index - b.frontmatter.index)
     }
   },
@@ -71,29 +75,36 @@ export default {
 
     keepOpenKeys(path) {
       this.menuPath = path
-      if (this.openKeys.length > 1)
+      if (this.openKeys.length > 1) {
         this.openKeys.pop()
+      }
     },
 
     gotoPost(path) {
-      path !== this.$route.path ? this.$router.push({ path: path, query: this.openKeys }) : null
+      path !== this.$route.path
+        ? this.$router.push({
+          path: path,
+          query: this.openKeys
+        })
+        : null
     },
 
     onOpenChange(openKeys) {
-      const latestOpenKey = openKeys.find(
-        key => this.openKeys.indexOf(key) === -1
+      const latestOpenKey = openKeys.find(key =>
+        this.openKeys.indexOf(key) === -1
       )
-      if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1)
+      if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
         this.openKeys = openKeys
-      else
+      } else {
         this.openKeys = latestOpenKey ? [latestOpenKey] : []
+      }
     }
   }
 }
 </script>
 
-<style scope lang="stylus">
-.component-sidebar
+<style lang="stylus" scoped>
+.component-sidebar 
   height 91.4vh
   overflow-y auto
 </style>
