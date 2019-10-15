@@ -4,7 +4,7 @@
     src=".\images\logo.png"
   >
   <h1>vuepress-theme-onen</h1>
-  <em>A VuePress Theme of oneN</em>
+  🎈<em>A VuePress Theme of oneN</em>
 </div>
 
 ## Quick Start
@@ -16,8 +16,8 @@ yarn add -D vuepress-theme-onen
 
 ## Preview
 
-[Live Demo](https://vincenthy.site)
+🔗 [Live Demo](https://vincenthy.site)
 
 ## License
 
-[MIT](https://github.com/Veminem/vuepress-theme-onen/blob/master/LICENSE)
+⚖ [MIT](https://github.com/Veminem/vuepress-theme-onen/blob/master/LICENSE)
