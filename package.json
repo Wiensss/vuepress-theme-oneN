@@ -1,7 +1,7 @@
 {
   "name": "vuepress-theme-onen",
   "version": "1.1.0",
-  "description": "VuePress theme of oneN",
+  "description": "A vuepress theme for oneN",
   "main": "index.js",
   "publishConfig": {
     "access": "public"
