@@ -2,7 +2,8 @@
   <img
     alt="logo" width="250px" height="250px"
     src=".\images\logo.png"
-  />
+  >
+  <h1>vuepress-theme-onen</h1>
   <em>A VuePress Theme of oneN</em>
 </div>
 
