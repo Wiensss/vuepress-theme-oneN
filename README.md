@@ -1,7 +1,7 @@
 <div align="center">
   <img
     alt="logo" width="250px" height="250px"
-    src="https://github.com/Veminem/vuepress-theme-oneN/tree/master/images/logo.png"
+    src=".\images\logo.png"
   />
   <em>A VuePress Theme of oneN</em>
 </div>
