@@ -7,24 +7,25 @@
     font-weight 600
 
   &.tip, &.warning, &.danger
+    margin 1rem 0
     padding .01rem 1.5rem
     border-left-width .5rem
     border-left-style solid
 
   &.tip
-    color darken($accentColor, 30%)
     border-color $accentColor
-    .custom-block-title
-      color darken($accentColor, 40%)
+    background-color $viceBgColor
 
   &.warning
-    color darken($warningColor, 30%)
-    border-color $warningColor
+    color darken($warningColor, 70%)
+    border-color darken($warningColor, 35%)
+    background-color rgba(255, 229, 100, .3)
     .custom-block-title
-      color darken($warningColor, 40%)
+      color darken($warningColor, 50%)
 
   &.danger
-    color darken($dangerColor, 30%)
-    border-color $dangerColor
+    color darken($dangerColor, 70%)
+    border-color darken($dangerColor, 25%)
+    background-color #ffe6e6
     .custom-block-title
       color darken($dangerColor, 40%)

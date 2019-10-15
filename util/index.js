@@ -124,7 +124,7 @@ function resolvePath (relative, base, append) {
 export function resolveTocItems (page) {
   return resolveHeaders(page)[0].children.map(
     item => {
-      item.slug = ''.replace.call(item.title, / /g, '-').toLowerCase()
+      item.slug = ''.replace.call(item.title, /[ |\.]/g, '-').toLowerCase()
       return {
         title: item.title,
         slug: item.slug,

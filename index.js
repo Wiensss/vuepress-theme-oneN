@@ -1,27 +1,25 @@
 module.exports = (options, ctx) => ({
   plugins: [
-    ['@vuepress/search'],
-    ['@vuepress/plugin-nprogress'],
+    [
+      '@vuepress/medium-zoom',
+      { selector: '.content__default :not(a) > img' }
+    ],
+    [
+      '@vuepress/search',
+      { searchMaxSuggestions: 5 }
+    ],
+    [ require('./plugins/nprogress') ],
     [
       'container',
-      {
-        type: 'tip',
-        defaultTitle: { '/zh/': '提示'}
-      }
+      { type: 'tip', defaultTitle: { '/zh/': '提示' } }
     ],
     [
       'container',
-      {
-        type: 'warning',
-        defaultTitle: { '/zh/': '注意' }
-      }
+      { type: 'warning', defaultTitle: { '/zh/': '注意' } }
     ],
     [
       'container',
-      {
-        type: 'danger',
-        defaultTitle: { '/zh/': '警告' }
-      }
+      { type: 'danger', defaultTitle: { '/zh/': '警告' } }
     ]
   ]
 })
