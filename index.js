@@ -8,10 +8,6 @@ module.exports = (options, ctx) => ({
       '@vuepress/search',
       { searchMaxSuggestions: 5 }
     ],
-    [
-      '@vuepress/pwa',
-      { serviceWorker: true, updatePopup: true }
-    ],
     [ require('./plugins/nprogress') ],
     [
       'container',
