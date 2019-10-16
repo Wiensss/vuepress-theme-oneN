@@ -1,13 +1,24 @@
 <template>
   <div>
-
-    <a-avatar
-      :size="55"
-      src="/avatar.jpg"
-      class="navbar-avatar"
-    />
-
+    <a-tooltip placement="bottom">
+      <template slot="title">Click to Stop</template>
+      <a-avatar
+        :size="55"
+        src="/avatar.jpg"
+        :class="[isPaused ? 'none-rotate' : '', 'navbar-avatar']"
+        @click="isPaused = !isPaused"
+        @mouseenter="toPaused"
+        @mouseleave="toPlay"
+      />
+    </a-tooltip>
     <SearchBox class="search-box" />
+
+    <audio ref="music" autoplay="autoplay" loop="loop">
+      <source
+        type="audio/mpeg"
+        src="https://blog-source-1259421820.cos.ap-guangzhou.myqcloud.com/public/music.mp3"
+      />
+    </audio>
 
     <a-breadcrumb class="navbar-breadcrumb">
       <a-breadcrumb-item
@@ -31,7 +42,28 @@
 import SearchBox from '@SearchBox'
 
 export default {
-  components: { SearchBox }
+  components: { SearchBox },
+
+  data() {
+    return {
+      music: '',
+      isPaused: false 
+    }
+  },
+
+  mounted() {
+    this.music = this.$refs.music
+  },
+
+  methods: {
+    toPaused() {
+      this.music.pause()
+    },
+
+    toPlay() {
+      this.isPaused ? this.music.pause() : this.music.play()
+    }
+  }
 }
 </script>
 
@@ -48,10 +80,11 @@ export default {
   margin .5rem
   animation rotate 2s linear infinite
 
+.none-rotate
 .navbar-avatar:hover
   animation-play-state paused
 
-.navbar-breadcrumb 
+.navbar-breadcrumb
   float right
   font-size 16px
   line-height 75px
