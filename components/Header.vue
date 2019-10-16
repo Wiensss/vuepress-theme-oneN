@@ -1,6 +1,8 @@
 <template>
   <div>
 
+  <a-tooltip placement="bottom">
+    <template slot="title">Click Stop Music</template>
     <a-avatar
       :size="55"
       src="/avatar.jpg"
@@ -9,6 +11,7 @@
       @mouseenter="isPaused"
       @mouseleave="isPlay"
     />
+  </a-tooltip>
 
     <audio ref="music" autoplay="autoplay" loop="loop">
       <source src="/music.mp3" type="audio/mpeg">
