@@ -46,9 +46,10 @@ export default {
 .navbar-avatar 
   float left
   margin .5rem
+  animation rotate 2s linear infinite
 
-  img:hover 
-    animation rotate 2s linear infinite
+.navbar-avatar:hover
+  animation-play-state paused
 
 .navbar-breadcrumb 
   float right
