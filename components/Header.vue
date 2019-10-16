@@ -4,8 +4,15 @@
     <a-avatar
       :size="55"
       src="/avatar.jpg"
-      class="navbar-avatar"
+      :class="[musicState ? '' : 'none-rotate', 'navbar-avatar']"
+      @click="musicState = !musicState"
+      @mouseenter="isPaused"
+      @mouseleave="isPlay"
     />
+
+    <audio ref="music" autoplay="autoplay" loop="loop">
+      <source src="/music.mp3" type="audio/mpeg">
+    </audio>
 
     <SearchBox class="search-box" />
 
@@ -31,11 +38,34 @@
 import SearchBox from '@SearchBox'
 
 export default {
-  components: { SearchBox }
+  components: { SearchBox },
+
+  data() {
+    return {
+      musicDom: '',
+      musicState: true,
+    }
+  },
+
+  mounted() {
+    this.musicDom = this.$refs.music
+  },
+
+  methods: {
+    isPaused() {
+      this.musicDom.pause()
+    },
+
+    isPlay() {
+      this.musicState
+        ? this.musicDom.play()
+        : this.musicDom.pause() 
+    }
+  }
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 @keyframes rotate 
   from 
     transform rotate(0deg)
@@ -46,11 +76,13 @@ export default {
 .navbar-avatar 
   float left
   margin .5rem
+  animation rotate 2s linear infinite
 
-  img:hover 
-    animation rotate 2s linear infinite
+.none-rotate
+.navbar-avatar:hover
+  animation-play-state paused
 
-.navbar-breadcrumb 
+.navbar-breadcrumb
   float right
   font-size 16px
   line-height 75px
