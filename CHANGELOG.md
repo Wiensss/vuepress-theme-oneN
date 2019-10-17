@@ -1,5 +1,12 @@
 ## 1.x
 
+### [v1.1.2](https://github.com/Veminem/vuepress-theme-oneN/releases/tag/1.1.2)
+
+ 🔔 更新 [2019-10-17]
+
+- `修复` 内容页面目录的双滚动条问题
+- `调整` 组件元素支持 config.js 文件配置
+
 ### [v1.1.1](https://github.com/Veminem/vuepress-theme-oneN/releases/tag/1.1.1)
 
  🔔 更新 [2019-10-16]
