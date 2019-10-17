@@ -5,7 +5,9 @@
 
     <div class="hero">
       <img
-        :src="data.heroImage || $withBase(data.heroImage)"
+        :src="$themeConfig.logo
+          ? $withBase($themeConfig.logo)
+          : require('../images/logo.png')"
         alt="hero"
       />
 

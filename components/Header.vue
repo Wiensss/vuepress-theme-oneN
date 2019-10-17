@@ -4,7 +4,7 @@
       <template slot="title">Click to Stop</template>
       <a-avatar
         :size="55"
-        src="/avatar.jpg"
+        :src="data.avatar ? $withBase(data.avatar) : require('../images/logo.png')"
         :class="[isPaused ? 'none-rotate' : '', 'navbar-avatar']"
         @click="isPaused = !isPaused"
         @mouseenter="toPaused"
@@ -14,10 +14,7 @@
     <SearchBox class="search-box" />
 
     <audio ref="music" autoplay="autoplay" loop="loop">
-      <source
-        type="audio/mpeg"
-        src="https://blog-source-1259421820.cos.ap-guangzhou.myqcloud.com/public/music.mp3"
-      />
+      <source type="audio/mpeg" :src="data.music" />
     </audio>
 
     <a-breadcrumb class="navbar-breadcrumb">
@@ -51,17 +48,27 @@ export default {
     }
   },
 
+  computed: {
+    data() {
+      return this.$themeConfig
+    }
+  },
+
   mounted() {
     this.music = this.$refs.music
   },
 
   methods: {
     toPaused() {
-      this.music.pause()
+      if (this.data.music) {
+        this.music.pause()
+      }
     },
 
     toPlay() {
-      this.isPaused ? this.music.pause() : this.music.play()
+      if (this.data.music) {
+        this.isPaused ? this.music.pause() : this.music.play()
+      }
     }
   }
 }
