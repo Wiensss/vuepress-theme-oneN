@@ -34,6 +34,8 @@
       </div>
     </div>
 
+    <Content class="content__default" />
+
   </div>
 </template>
 
