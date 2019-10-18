@@ -1,5 +1,13 @@
 ## 1.x
 
+### [v1.1.3](https://github.com/Veminem/vuepress-theme-oneN/releases/tag/1.1.3)
+
+ 🔔 更新 [2019-10-18]
+
+- `修复` 页脚组件图标配置信息
+- `新增` 配置主题说明文档
+- `调整` 首页支持嵌入 MarkDown 内容
+
 ### [v1.1.2](https://github.com/Veminem/vuepress-theme-oneN/releases/tag/1.1.2)
 
  🔔 更新 [2019-10-17]

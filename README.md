@@ -5,15 +5,24 @@
   >
   <h1>vuepress-theme-onen</h1>
   🎈<em>A VuePress Theme for oneN</em>
+  <p align="center">
+    <a href="https://www.npmjs.com/package/vuepress-theme-onen">
+      <img src="https://img.shields.io/npm/v/vuepress-theme-onen?color=red" alt="npm version">
+    </a>
+    <a href="https://www.npmjs.com/package/vuepress-theme-onen">
+      <img src="https://img.shields.io/npm/dt/vuepress-theme-one" alt="npm download">
+    </a>
+    <a href="https://github.com/Veminem/vuepress-theme-oneN/blob/master/LICENSE">
+      <img src="https://img.shields.io/npm/l/vuepress-theme-onen" alt="MIT license">
+    </a>
+  </p>
 </div>
 
 ## Preview
 
 🔗 [Live Demo](https://vincenthy.site)
 
-## License
-
-⚖ [MIT](https://github.com/Veminem/vuepress-theme-onen/blob/master/LICENSE)
+[Live](https://github.com/Veminem/vuepress-theme-oneN/blob/1.x/images/6.png)
 
 ## 主题安装
 
@@ -21,7 +30,7 @@ oneN 主题基于 VuePress，首先你应该新建一个 VuePress 项目文件�
 
 在现有的 VuePress 项目文件新建如下目录结构：
 
-![目录结构](./img/1.png)
+![目录结构](https://github.com/Veminem/vuepress-theme-oneN/blob/1.x/images/1.png)
 
 接着安装 oneN 主题：
 
@@ -74,7 +83,7 @@ features:
 
 配置完的首页效果如下：
 
-![首页](img/2.png)
+![首页](https://github.com/Veminem/vuepress-theme-oneN/blob/1.x/images/2.png)
 
 ### 侧边栏
 
@@ -89,7 +98,7 @@ module.exports = {
         text: '',
         link: '',
         children: [
-        	{ text: '', link: '' },
+          { text: '', link: '' },
           { text: '', link: '' },
           ...
         ]
@@ -102,7 +111,7 @@ module.exports = {
 
 可以看到 `themeConfig.menu` 数组中每个对象成员作为一级导航，应包含 `text`、`link`、`children` 字段，其中 `children` 字段又嵌套着二级导航。
 
-![侧边栏](img/5.png)
+![侧边栏](https://github.com/Veminem/vuepress-theme-oneN/blob/1.x/images/5.png)
 
 如上图所示树形结构文件的侧边栏，配置内容应如下：
 
@@ -115,7 +124,7 @@ module.exports = {
         text: 'postA',
         link: '/post/postA',
         children: [
-        	{ text: 'postA1', link: '/postA-1' },
+          { text: 'postA1', link: '/postA-1' },
           { text: 'postA2', link: '/postA-2' },
         ]
       },
@@ -123,7 +132,7 @@ module.exports = {
         text: 'postB',
         link: '/post/postB',
         children: [
-        	{ text: 'postB1', link: '/postB-1' },
+          { text: 'postB1', link: '/postB-1' },
         ]
       },
     ]
@@ -145,7 +154,7 @@ module.exports = {
 }
 ```
 
-> 注意，你应该在项目 `.vuepress/public` 目录下存放静态公共文件资源，以使 `/avatar.jpg`、`/logo.png` 这样的路径能够被正确读取。 
+> 注意，你应该在项目 `.vuepress/public` 目录下存放静态公共文件资源，以使 `/avatar.jpg`、`/logo.png` 这样的路径能够被正确读取。
 >
 > 详细请阅读 [VuePress 官方文档 - 静态资源](https://vuepress.vuejs.org/zh/guide/assets.html#%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90)。
 
@@ -178,7 +187,7 @@ module.exports = {
 
 配置完的导航栏效果如下：
 
-![导航栏](img/3.png)
+![导航栏](https://github.com/Veminem/vuepress-theme-oneN/blob/1.x/images/3.png)
 
 ### 音乐控件
 
@@ -221,7 +230,7 @@ module.exports = {
 
 配置完的页脚效果如下：
 
-![页脚](img/4.png)
+![页脚](https://github.com/Veminem/vuepress-theme-oneN/blob/1.x/images/4.png)
 
 ### 自定义图标
 
@@ -229,7 +238,7 @@ oneN 使用 [ant-design-vue](https://vue.ant.design/components/icon-cn/) 图标�
 
 ### 自定义颜色
 
- 如果要对主题[默认预设]( https://github.com/Veminem/vuepress-theme-oneN/blob/master/styles/palette.styl )的样式应用简单的颜色替换，或者定义一些颜色变量供以后使用，你可以创建一个 `.vuepress/styles/palette.styl` 文件。 
+ 如果要对主题[默认预设]( https://github.com/Veminem/vuepress-theme-oneN/blob/master/styles/palette.styl )的样式应用简单的颜色替换，或者定义一些颜色变量供以后使用，你可以创建一个 `.vuepress/styles/palette.styl` 文件。
 
  你可以调整一些颜色变量：
 
