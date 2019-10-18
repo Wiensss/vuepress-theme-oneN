@@ -1,6 +1,6 @@
 {
   "name": "vuepress-theme-onen",
-  "version": "1.1.3",
+  "version": "1.1.3-alpha",
   "description": "A vuepress theme for oneN",
   "main": "index.js",
   "publishConfig": {
