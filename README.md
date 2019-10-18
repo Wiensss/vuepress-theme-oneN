@@ -35,8 +35,8 @@ oneN 主题基于 VuePress，首先你应该新建一个 VuePress 项目文件�
 接着安装 oneN 主题：
 
 ```sh
-npm install -D vuepress-theme-onen
-# or yarn add -D vuepress-theme-onen
+yarn add -D vuepress-theme-onen
+# or npm install -D vuepress-theme-onen
 ```
 
 ## 主题配置
