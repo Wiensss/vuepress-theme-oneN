@@ -30,7 +30,6 @@
 
 [Live](https://github.com/Veminem/vuepress-theme-oneN/blob/1.x/images/6.png)
 
-
 ## 主题安装
 
 oneN 主题基于 VuePress，首先你应该新建一个 VuePress 项目文件。详细请阅读 [VuePress 官方文档 - 现有项目](https://vuepress.vuejs.org/zh/guide/getting-started.html#%E7%8E%B0%E6%9C%89%E9%A1%B9%E7%9B%AE)。
