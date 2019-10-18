@@ -1,4 +1,20 @@
-## Changelog
+## 1.x
+
+### [v1.1.2](https://github.com/Veminem/vuepress-theme-oneN/releases/tag/1.1.2)
+
+ 🔔 更新 [2019-10-17]
+
+- `修复` 内容页面目录的双滚动条问题
+- `调整` 组件元素支持 config.js 文件配置
+
+### [v1.1.1](https://github.com/Veminem/vuepress-theme-oneN/releases/tag/1.1.1)
+
+ 🔔 更新 [2019-10-16]
+
+- `修复` 引用无连接参考时, 链接折叠面板不再生成 a 标签
+- `新增` 背景音乐
+- `调整` 通过头像旋转控制音乐播放状态
+- `调整` 内容页面段落间距微调
 
 ### [v1.1.0](https://github.com/Veminem/vuepress-theme-oneN/releases/tag/1.1.0)
 
@@ -15,7 +31,7 @@
 - `调整` logo 边框、滚动条样式为渐变色
 - `调整` 样式调整，包括底部链接、顶部导航栏背景图
 
-### [v1.0.0](https://github.com/Veminem/vuepress-theme-oneN/releases/tag/1.0.0)
+## [v1.0.0](https://github.com/Veminem/vuepress-theme-oneN/releases/tag/1.0.0)
 
  🔔 更新 [2019-10-12]
 

@@ -6,7 +6,7 @@
     </div>
 
     <h3 v-if="$frontmatter.home" class="title">
-      Welcome to my Blog
+      {{ $frontmatter.message }}
     </h3>
 
     <p class="description">Just wait a minute!</p>

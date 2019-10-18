@@ -14,7 +14,8 @@
           :key="item.title"
         >
           {{ index + 1 + ' - ' + item.author + ', ' }}
-          <a :href="item.link" target="view_window">{{ item.title }}</a>
+          <a v-if="item.link" :href="item.link" target="view_window">{{ item.title }}</a>
+          <span v-else>{{ item.title }}</span>
         </p>
 
       </a-collapse-panel>

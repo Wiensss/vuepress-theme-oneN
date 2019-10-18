@@ -12,7 +12,14 @@
       v-model="collapsed"
       class="layout-sidebar"
     >
-      <div class="logo" title="oneN"></div>
+      <div class="logo">
+        <img
+          :src="$themeConfig.logo
+            ? $withBase($themeConfig.logo)
+            : require('../images/logo.png')"
+          alt="logo"
+        />
+      </div>
       <Sidebar :collapsed="collapsed" />
     </a-layout-sider>
 
@@ -92,7 +99,7 @@ export default {
 .layout-header
   padding 0
   height 70px
-  background #f9f9f9 url('/header.jpg') no-repeat left
+  background #f9f9f9 url('../images/header.jpg') no-repeat left
   background-size auto 100%
 
 .layout-footer 
@@ -108,10 +115,15 @@ export default {
 
   .logo
     height 70px
+    width 100%
     border 5px solid
+    text-align center
+    background $bgColor
     border-image linear-gradient(to left, $accentColor, $textColor) 30 30
-    background $bgColor url('/logo.png') no-repeat center
     background-size auto 80px
+
+    img
+      max-height 60px
 
 .back-top 
   right .5rem

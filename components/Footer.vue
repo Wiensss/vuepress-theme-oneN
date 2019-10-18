@@ -3,7 +3,7 @@
 
     <a-divider>End</a-divider>
 
-    © 2019-Present Created by Vincent Hy
+    © 2019-Present Created by {{ $themeConfig.name }}
     <a-icon spin type="chrome" theme="filled" />
     Powered by
     <a href="https://github.com/vuejs/vuepress" target="view_window">Vuepress</a>
