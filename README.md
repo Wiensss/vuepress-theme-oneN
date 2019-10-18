@@ -18,7 +18,7 @@
   </p>
 </div>
 
-## 主题简介
+## 简介
 
 - 一个偏文档风格的博客，灵感来自于 oneNote 笔记本
 - 博客主题追求简约文档风，抛去主流博客的元素，标签、归档等
@@ -41,8 +41,8 @@ oneN 主题基于 VuePress，首先你应该新建一个 VuePress 项目文件�
 接着安装 oneN 主题：
 
 ```sh
-npm install -D vuepress-theme-onen
-# or yarn add -D vuepress-theme-onen
+yarn add -D vuepress-theme-onen
+# or npm install -D vuepress-theme-onen
 ```
 
 ## 主题配置
