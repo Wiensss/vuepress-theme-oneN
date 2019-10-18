@@ -22,7 +22,7 @@
 
 🔗 [Live Demo](https://vincenthy.site)
 
-[Live](https://github.com/Veminem/vuepress-theme-oneN/blob/1.x/images/6.png)
+![Live](https://github.com/Veminem/vuepress-theme-oneN/blob/1.x/images/6.png)
 
 ## 主题安装
 
