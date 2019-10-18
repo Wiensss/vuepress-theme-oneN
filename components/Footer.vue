@@ -3,8 +3,12 @@
 
     <a-divider>End</a-divider>
 
-    © 2019-Present Created by {{ $themeConfig.name }}
-    <a-icon spin type="chrome" theme="filled" />
+    © 2019-Present Created by {{ data.name ? data.name : 'Vicent Hy' }}
+    <a-icon
+      :spin="data.footer.spin ? data.footer.spin : false"
+      :type="data.footer.type ? data.footer.type : 'chrome'"
+      :theme="data.footer.theme ? data.footer.theme : 'filled'"
+    />
     Powered by
     <a href="https://github.com/vuejs/vuepress" target="view_window">Vuepress</a>
     | Theme by
@@ -12,6 +16,16 @@
 
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    data() {
+      return this.$themeConfig
+    }
+  }
+}
+</script>
 
 <style lang="stylus" scoped>
 a:hover 
