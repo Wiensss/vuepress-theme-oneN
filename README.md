@@ -4,7 +4,7 @@
     src="https://github.com/Veminem/vuepress-theme-oneN/blob/master/images/logo.png"
   >
   <h1>vuepress-theme-onen</h1>
-  🎈<em>A VuePress Theme for oneN</em>
+  <p>🎈<em>A VuePress Theme for oneN</em></p>
   <p align="center">
     <a href="https://www.npmjs.com/package/vuepress-theme-onen">
       <img src="https://img.shields.io/npm/v/vuepress-theme-onen?color=red" alt="npm version">
@@ -18,9 +18,15 @@
   </p>
 </div>
 
-## Preview
+## 主题简介
 
-🔗 [Live Demo](https://vincenthy.site)
+- 一个偏文档风格的博客，灵感来自于 oneNote 笔记本
+- 博客主题追求简约文档风，抛去主流博客的元素，标签、归档等
+- 这看起来更像是对默认主题的一次改版，但也增加了主题的元素
+
+## 预览
+
+💨 [Live Demo](https://vincenthy.site)
 
 ![Live](https://github.com/Veminem/vuepress-theme-oneN/blob/1.x/images/6.png)
 
