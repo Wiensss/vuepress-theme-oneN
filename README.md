@@ -4,7 +4,7 @@
     src="https://github.com/Veminem/vuepress-theme-oneN/blob/master/images/logo.png"
   >
   <h1>vuepress-theme-onen</h1>
-  🎈<em>A VuePress Theme for oneN</em>
+  <p>🎈<em>A VuePress Theme for oneN</em></p>
   <p align="center">
     <a href="https://www.npmjs.com/package/vuepress-theme-onen">
       <img src="https://img.shields.io/npm/v/vuepress-theme-onen?color=red" alt="npm version">
@@ -28,7 +28,7 @@
 
 💨 [Live Demo](https://vincenthy.site)
 
-[Live](https://github.com/Veminem/vuepress-theme-oneN/blob/1.x/images/6.png)
+![Live](https://github.com/Veminem/vuepress-theme-oneN/blob/1.x/images/6.png)
 
 ## 主题安装
 
